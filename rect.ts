@@ -34,6 +34,8 @@ export const shape = (rectangle: IRect) =>
 export const vals = (rect: IRect) =>
   [rect.x, rect.y, rect.w, rect.h] as const;
 
+export const hdom = (rect: IRect) => [[rect.x, rect.y], rect.w, rect.h];
+
 export const isPointInBoundsX = (
   rect: IRect,
   point: IPoint,
