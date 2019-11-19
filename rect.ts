@@ -1,5 +1,5 @@
-import * as p from "./point.js";
-import { IPoint } from "./point.js";
+import * as p from "./point";
+import { IPoint } from "./point";
 
 export interface IRect {
   x: number;
