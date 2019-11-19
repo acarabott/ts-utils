@@ -1,47 +1,47 @@
 import * as p from "./point.js";
 import { IPoint } from "./point.js";
 
-export interface IRectangle {
+export interface IRect {
   x: number;
   y: number;
   w: number;
   h: number;
 }
 
-export const equal = (rectA: IRectangle, rectB: IRectangle) =>
+export const equal = (rectA: IRect, rectB: IRect) =>
   rectA.x === rectB.x &&
   rectA.y === rectB.y &&
   rectA.w === rectB.w &&
   rectA.h === rectB.h;
 
-export const r = (rect: IRectangle) => rect.x + rect.w;
-export const b = (rect: IRectangle) => rect.y + rect.h;
+export const r = (rect: IRect) => rect.x + rect.w;
+export const b = (rect: IRect) => rect.y + rect.h;
 
-export const tl = (rect: IRectangle) => ({ x: rect.x, y: rect.y });
-export const tr = (rect: IRectangle) => ({ x: rect.x + rect.w, y: rect.y });
-export const bl = (rect: IRectangle) => ({ x: rect.x, y: rect.y + rect.h });
-export const br = (rect: IRectangle) => ({ x: r(rect), y: b(rect) });
+export const tl = (rect: IRect) => ({ x: rect.x, y: rect.y });
+export const tr = (rect: IRect) => ({ x: rect.x + rect.w, y: rect.y });
+export const bl = (rect: IRect) => ({ x: rect.x, y: rect.y + rect.h });
+export const br = (rect: IRect) => ({ x: r(rect), y: b(rect) });
 
-export const lerpX = (rect: IRectangle, pos: number) => rect.x + rect.w * pos;
-export const lerpY = (rect: IRectangle, pos: number) => rect.y + rect.h * pos;
+export const lerpX = (rect: IRect, pos: number) => rect.x + rect.w * pos;
+export const lerpY = (rect: IRect, pos: number) => rect.y + rect.h * pos;
 
-export const midX = (rect: IRectangle) => lerpX(rect, 0.5);
-export const midY = (rect: IRectangle) => lerpY(rect, 0.5);
+export const midX = (rect: IRect) => lerpX(rect, 0.5);
+export const midY = (rect: IRect) => lerpY(rect, 0.5);
 
-export const shape = (rectangle: IRectangle) =>
+export const shape = (rectangle: IRect) =>
   [rectangle.w, rectangle.h] as const;
 
-export const vals = (rect: IRectangle) =>
+export const vals = (rect: IRect) =>
   [rect.x, rect.y, rect.w, rect.h] as const;
 
 export const isPointInBoundsX = (
-  rect: IRectangle,
+  rect: IRect,
   point: IPoint,
   threshold = 0,
 ) => point.x >= rect.x - threshold && point.x <= r(rect) + threshold;
 
 export const isPointInBoundsY = (
-  rect: IRectangle,
+  rect: IRect,
   point: IPoint,
   threshold = 0,
 ) => {
@@ -49,7 +49,7 @@ export const isPointInBoundsY = (
 };
 
 export const containsPoint = (
-  rect: IRectangle,
+  rect: IRect,
   point: IPoint,
   isBrExclusive = true,
   horzThresh = 0,
@@ -73,28 +73,28 @@ export const containsPoint = (
   return containsPoint(threshRect, point, isBrExclusive);
 };
 
-export const overlapsRect = (rectA: IRectangle, rectB: IRectangle) =>
+export const overlapsRect = (rectA: IRect, rectB: IRect) =>
   rectA.x < r(rectB) &&
   r(rectA) > rectB.x &&
   rectA.y < b(rectB) &&
   b(rectA) > rectB.y;
 
-export const offsetBy = (rect: IRectangle, point: IPoint) => ({
+export const offsetBy = (rect: IRect, point: IPoint) => ({
   ...rect,
   ...p.addPoint(tl(rect), point),
 });
 
-export const center = (rect: IRectangle) => ({
+export const center = (rect: IRect) => ({
   x: rect.x + rect.w / 2,
   y: rect.y + rect.h / 2,
 });
 
-export const containsRect = (rect: IRectangle, point: IPoint) =>
+export const containsRect = (rect: IRect, point: IPoint) =>
   containsPoint(rect, point) && containsPoint(rect, point);
 
 // returns a new rectangle which is the overlapping of the two rectangles
 // returns the overlapping rectangle
-export const getRectOverlap = (rect: IRectangle, rectB: IRectangle) => {
+export const getRectOverlap = (rect: IRect, rectB: IRect) => {
   if (!overlapsRect(rect, rectB)) {
     return undefined;
   }
@@ -108,7 +108,7 @@ export const getRectOverlap = (rect: IRectangle, rectB: IRectangle) => {
 };
 
 export const isPointOnTopLine = (
-  rect: IRectangle,
+  rect: IRect,
   point: IPoint,
   threshold = 0,
 ) =>
@@ -117,7 +117,7 @@ export const isPointOnTopLine = (
   point.y <= tl(rect).y + threshold;
 
 export const isPointOnBottomLine = (
-  rect: IRectangle,
+  rect: IRect,
   point: IPoint,
   threshold = 0,
 ) =>
@@ -126,7 +126,7 @@ export const isPointOnBottomLine = (
   point.y <= br(rect).y + threshold;
 
 export const isPointOnLeftLine = (
-  rect: IRectangle,
+  rect: IRect,
   point: IPoint,
   threshold = 0,
 ) =>
@@ -135,7 +135,7 @@ export const isPointOnLeftLine = (
   point.x <= tl(rect).x + threshold;
 
 export const isPointOnRightLine = (
-  rect: IRectangle,
+  rect: IRect,
   point: IPoint,
   threshold = 0,
 ) =>
@@ -143,14 +143,14 @@ export const isPointOnRightLine = (
   point.x >= br(rect).x - threshold &&
   point.x <= br(rect).x + threshold;
 
-export const isPointOnLine = (rect: IRectangle, point: IPoint, threshold = 0) =>
+export const isPointOnLine = (rect: IRect, point: IPoint, threshold = 0) =>
   isPointOnTopLine(rect, point, threshold) ||
   isPointOnBottomLine(rect, point, threshold) ||
   isPointOnLeftLine(rect, point, threshold) ||
   isPointOnRightLine(rect, point, threshold);
 
 export const isPointOnTopLeft = (
-  rect: IRectangle,
+  rect: IRect,
   point: IPoint,
   threshold = 0,
 ) =>
@@ -158,7 +158,7 @@ export const isPointOnTopLeft = (
   isPointOnLeftLine(rect, point, threshold);
 
 export const isPointOnTopRight = (
-  rect: IRectangle,
+  rect: IRect,
   point: IPoint,
   threshold = 0,
 ) =>
@@ -166,7 +166,7 @@ export const isPointOnTopRight = (
   isPointOnRightLine(rect, point, threshold);
 
 export const isPointOnBottomLeft = (
-  rect: IRectangle,
+  rect: IRect,
   point: IPoint,
   threshold = 0,
 ) =>
@@ -174,7 +174,7 @@ export const isPointOnBottomLeft = (
   isPointOnLeftLine(rect, point, threshold);
 
 export const isPointOnBottomRight = (
-  rect: IRectangle,
+  rect: IRect,
   point: IPoint,
   threshold = 0,
 ) =>
