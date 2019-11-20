@@ -1,4 +1,4 @@
-import { numPad } from "./numPad.js";
+import { numPad } from "./numPad";
 
 export const msToBeatsBarsTicks = (timeMs: number, tempo: number, beatsPerBar: number) => {
   const ticksPerBeat = 960;

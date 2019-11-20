@@ -1,5 +1,5 @@
-import { ISession } from "../api.js";
-import { saveToJson } from "./saveToFile.js";
+import { ISession } from "../api";
+import { saveToJson } from "./saveToFile";
 
 export const saveSessionToFile = (session: ISession, basename: string) =>
   saveToJson(`${basename}.bronze`, session);

@@ -7,10 +7,10 @@ import {
   downsampleRenderData,
   IBufferRenderData,
   isBufferData,
-} from "./downsample-buffer-lib.js";
-import { worker as downsampleWorkerString } from "./downsample-buffer.inline-worker.js";
-import { WorkerPool } from "./models/WorkerPool.js";
-import { createInlineWorker } from "./utils/createInlineWorker.js";
+} from "./downsample-buffer-lib";
+import { worker as downsampleWorkerString } from "./downsample-buffer.inline-worker";
+import { WorkerPool } from "./models/WorkerPool";
+import { createInlineWorker } from "./utils/createInlineWorker";
 
 type DownsampleBufferMethod = (
   buffer: AudioBuffer,

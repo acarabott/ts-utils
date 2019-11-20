@@ -1,4 +1,4 @@
-import { StorageIndexedDB } from "./StorageIndexedDB.js";
+import { StorageIndexedDB } from "./StorageIndexedDB";
 
 // TODO this should be in a config file somewhere?
 export const DB_NAME = "bronze-composer";

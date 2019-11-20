@@ -1,5 +1,5 @@
 // Modified from:
-// https://github.com/lodash/lodash/blob/master/shuffle.js
+// https://github.com/lodash/lodash/blob/master/shuffle
 
 /**
  * Creates an array of shuffled values, using a version of the

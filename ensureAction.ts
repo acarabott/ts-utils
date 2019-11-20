@@ -1,4 +1,4 @@
-import { onReady } from "../utils/onReady.js";
+import { onReady } from "../utils/onReady";
 
 export const ensureAction = (
   action: () => any,
