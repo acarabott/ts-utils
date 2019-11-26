@@ -1,0 +1,32 @@
+{
+  "name": "ts-utils",
+  "version": "1.0.0",
+  "description": "TypeScripts Utility Functions",
+  "main": "audio.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acarabott/ts-utils.git"
+  },
+  "keywords": [
+    "TypeScript",
+    "Utility"
+  ],
+  "author": "Arthur Carabott",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/acarabott/ts-utils/issues"
+  },
+  "homepage": "https://github.com/acarabott/ts-utils#readme",
+  "dependencies": {
+    "@thi.ng/api": "^6.5.0",
+    "@thi.ng/math": "^1.5.0",
+    "@thi.ng/rstream": "^2.5.6",
+    "@thi.ng/transducers": "^6.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^3.7.2"
+  }
+}
