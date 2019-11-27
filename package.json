@@ -1,5 +1,5 @@
 {
-  "name": "ts-utils",
+  "name": "@acarabott/ts-utils",
   "version": "1.0.0",
   "description": "TypeScripts Utility Functions",
   "main": "audio.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/acarabott/ts-utils.git"
+    "url": "git://github.com/acarabott/ts-utils.git"
   },
   "keywords": [
     "TypeScript",
