@@ -26,5 +26,6 @@
     "experimentalDecorators": true,
     "preserveConstEnums": true
   },
+  "include": ["./**/*.ts"],
   "exclude": ["./**/node_modules"]
 }
