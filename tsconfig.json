@@ -14,6 +14,7 @@
       "es2017",
       "es2017.object"
     ],
+    "outDir": "dist",
     "allowJs": true,
     "strict": true,
     "noImplicitAny": true,
@@ -27,5 +28,5 @@
     "preserveConstEnums": true
   },
   "include": ["./**/*.ts"],
-  "exclude": ["./**/node_modules"]
+  "exclude": ["./**/node_modules", "./src/*.js", "./dist"]
 }

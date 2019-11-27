@@ -2,7 +2,7 @@
   "name": "@acarabott/ts-utils",
   "version": "1.0.1",
   "description": "TypeScripts Utility Functions",
-  "main": "audio.js",
+  "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
