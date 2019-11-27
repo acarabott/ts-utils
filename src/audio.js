@@ -1,4 +1,4 @@
-import { ensureAction } from "./utils/ensureAction";
+import { ensureAction } from "./ensureAction";
 
 // oh Apple...
 

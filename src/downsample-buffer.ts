@@ -9,7 +9,7 @@ import {
   IBufferRenderData,
   isBufferData,
 } from "./downsample-buffer-lib";
-import { worker as downsampleWorkerString } from "./downsample-buffer.inline-worker";
+import { downsampleBufferWorker } from "./downsample-buffer.inline-worker";
 import { WorkerPool } from "./WorkerPool";
 
 type DownsampleBufferMethod = (
@@ -148,7 +148,7 @@ export function downsampleBufferSync(
 // Async (Worker) version
 // -----------------------------------------------------------------------------
 const workerPool = new WorkerPool(
-  () => createInlineWorker(downsampleWorkerString),
+  () => createInlineWorker(downsampleBufferWorker),
   navigator.hardwareConcurrency,
 );
 async function downsampleInWorker(
