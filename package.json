@@ -10,6 +10,9 @@
     "type": "git",
     "url": "git://github.com/acarabott/ts-utils.git"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "keywords": [
     "TypeScript",
     "Utility"
