@@ -1,8 +1,13 @@
-import { onReady } from "../utils/onReady";
+import { onReady } from "./onReady";
 
 export const ensureAction = (
   action: () => any,
-  events: Array<keyof HTMLElementEventMap> = ["click", "keydown", "touchstart", "touchend"],
+  events: Array<keyof HTMLElementEventMap> = [
+    "click",
+    "keydown",
+    "touchstart",
+    "touchend",
+  ],
 ) => {
   onReady(() => {
     const wrappedAction = async () => {

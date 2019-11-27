@@ -2,6 +2,7 @@
 // If the buffer has already been downsampled to a size that is greater than the
 // requested renderWidth, that is downsampled instead of the buffer
 // ------------------------------------------------------------------------------
+import { createInlineWorker } from "./createInlineWorker";
 import {
   downsampleChannels,
   downsampleRenderData,
@@ -9,8 +10,7 @@ import {
   isBufferData,
 } from "./downsample-buffer-lib";
 import { worker as downsampleWorkerString } from "./downsample-buffer.inline-worker";
-import { WorkerPool } from "./models/WorkerPool";
-import { createInlineWorker } from "./utils/createInlineWorker";
+import { WorkerPool } from "./WorkerPool";
 
 type DownsampleBufferMethod = (
   buffer: AudioBuffer,
@@ -125,7 +125,10 @@ export function downsampleBufferSync(
     });
   };
 
-  const dataMethod = (_data: Promise<IBufferRenderData>, _renderWidth: number) => {
+  const dataMethod = (
+    _data: Promise<IBufferRenderData>,
+    _renderWidth: number,
+  ) => {
     return new Promise<IBufferRenderData>(async () => {
       return downsampleRenderData(await _data, _renderWidth);
     });
