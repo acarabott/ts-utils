@@ -1,6 +1,6 @@
 {
   "name": "@acarabott/ts-utils",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "TypeScripts Utility Functions",
   "main": "audio.js",
   "scripts": {
