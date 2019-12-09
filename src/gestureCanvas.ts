@@ -1,5 +1,6 @@
+import { ILifecycle } from "@thi.ng/hdom";
 import { canvas } from "@thi.ng/hdom-canvas";
-import { StreamMerge } from "@thi.ng/rstream";
+import { StreamMerge, Subscription } from "@thi.ng/rstream";
 import { labeled } from "@thi.ng/transducers";
 
 import {
@@ -23,9 +24,18 @@ export const gestureCanvas = <T_ID extends string>(
   parentStream: StreamMerge<any, LabeledGestureStream<T_ID>>,
   gestureId: T_ID,
   options?: Partial<IGestureStreamOptions>,
-) => ({
-  ...canvas,
-  init: (el: HTMLCanvasElement) => {
-    parentStream.add(gestureStream(el, options).transform(labeled(gestureId)));
-  },
-});
+): ILifecycle => {
+  let theStream: Subscription<GestureEvent[], LabeledGestureStream<T_ID>>;
+
+  return {
+    ...canvas,
+    init(el: HTMLCanvasElement) {
+      theStream = gestureStream(el, options).transform(labeled(gestureId));
+      parentStream.add(theStream);
+    },
+
+    release() {
+      parentStream.remove(theStream);
+    },
+  };
+};

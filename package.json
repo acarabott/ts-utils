@@ -1,6 +1,6 @@
 {
   "name": "@acarabott/ts-utils",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "TypeScripts Utility Functions",
   "main": "index.ts",
   "scripts": {
