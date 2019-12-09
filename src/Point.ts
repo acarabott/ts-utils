@@ -3,6 +3,11 @@ export interface IPoint {
   y: number;
 }
 
+export interface IClientPoint {
+  clientX: number;
+  clientY: number;
+}
+
 // tslint:disable-next-line:variable-name
 export const Point = {
   isIPoint(data: any): data is IPoint {
@@ -10,110 +15,109 @@ export const Point = {
     return typeof cast.x === "number" && typeof cast.y === "number";
   },
 
-  lessThan(pointA: IPoint, pointB: IPoint) {
-    return pointA.x < pointB.x && pointA.y < pointB.y;
-  },
-
-  lessOrEqualTo(pointA: IPoint, pointB: IPoint) {
-    return pointA.x <= pointB.x && pointA.y <= pointB.y;
-  },
-
-  greaterOrEqualTo(pointA: IPoint, pointB: IPoint) {
-    return pointA.x >= pointB.x && pointA.y >= pointB.y;
-  },
-
-  addPoint(pointA: IPoint, pointB: IPoint) {
-    return {
-      x: pointA.x + pointB.x,
-      y: pointA.y + pointB.y,
-    };
-  },
-
-  subtractPoint(pointA: IPoint, pointB: IPoint) {
-    return {
-      x: pointA.x - pointB.x,
-      y: pointA.y - pointB.y,
-    };
-  },
-
-  constrain(point: IPoint, minP: IPoint, maxP: IPoint) {
-    return {
-      x: Math.min(Math.max(point.x, minP.x), maxP.x),
-      y: Math.min(Math.max(point.y, minP.y), maxP.y),
-    };
-  },
-
   vals(point: IPoint) {
     return [point.x, point.y];
   },
 
-  addVal(point: IPoint, val: number) {
+  addPoint(a: IPoint, b: IPoint) {
     return {
-      x: point.x + val,
-      y: point.y + val,
+      x: a.x + b.x,
+      y: a.y + b.y,
     };
   },
 
-  subtractVal(point: IPoint, val: number) {
+  subtractPoint(a: IPoint, b: IPoint): IPoint {
     return {
-      x: point.x - val,
-      y: point.y - val,
+      x: a.x - b.x,
+      y: a.y - b.y,
     };
   },
 
-  multiplyVal(point: IPoint, val: number) {
+  multiplyScalar(point: IPoint, scalar: number) {
     return {
-      x: point.x * val,
-      y: point.y * val,
+      x: point.x * scalar,
+      y: point.y * scalar,
     };
   },
 
-  divideVal(point: IPoint, val: number) {
+  divideScalar(point: IPoint, scalar: number) {
     return {
-      x: point.x / val,
-      y: point.y / val,
+      x: point.x / scalar,
+      y: point.y / scalar,
     };
   },
 
-  greaterThan(point: IPoint) {
-    return point.x > point.x && point.y > point.y;
+  addScalar(point: IPoint, scalar: number) {
+    return {
+      x: point.x + scalar,
+      y: point.y + scalar,
+    };
   },
 
-  eitherLessThan(point: IPoint) {
-    return point.x < point.x || point.y < point.y;
+  subtractScalar(point: IPoint, scalar: number) {
+    return {
+      x: point.x - scalar,
+      y: point.y - scalar,
+    };
   },
 
-  eitherGreaterThan(point: IPoint) {
-    return point.x > point.x || point.y > point.y;
+  constrain(point: IPoint, min: IPoint, max: IPoint) {
+    return {
+      x: Math.min(Math.max(point.x, min.x), max.x),
+      y: Math.min(Math.max(point.y, min.y), max.y),
+    };
   },
 
-  eitherLessThanOrEqualTo(point: IPoint) {
-    return point.x <= point.x || point.y <= point.y;
+  lessThan(a: IPoint, b: IPoint) {
+    return a.x < b.x && a.y < b.y;
   },
 
-  eitherGreaterThanOrEqualTo(point: IPoint) {
-    return point.x >= point.x || point.y >= point.y;
+  lessOrEqualTo(a: IPoint, b: IPoint) {
+    return a.x <= b.x && a.y <= b.y;
   },
 
-  manhattanDistanceTo(point: IPoint) {
-    return Math.abs(point.x - point.x) + Math.abs(point.y + point.y);
+  greaterOrEqualTo(a: IPoint, b: IPoint) {
+    return a.x >= b.x && a.y >= b.y;
   },
 
-  euclideanDistanceTo(point: IPoint) {
+  greaterThan(a: IPoint, b: IPoint) {
+    return a.x > b.x && a.y > b.y;
+  },
+
+  eitherLessThan(a: IPoint, b: IPoint) {
+    return a.x < b.x || a.y < b.y;
+  },
+
+  eitherGreaterThan(a: IPoint, b: IPoint) {
+    return a.x > b.x || a.y > b.y;
+  },
+
+  eitherLessThanOrEqualTo(a: IPoint, b: IPoint) {
+    return a.x <= b.x || a.y <= b.y;
+  },
+
+  eitherGreaterThanOrEqualTo(a: IPoint, b: IPoint) {
+    return a.x >= b.x || a.y >= b.y;
+  },
+
+  manhattanDistanceTo(a: IPoint, b: IPoint) {
+    return Math.abs(a.x - b.x) + Math.abs(a.y + b.y);
+  },
+
+  euclideanDistanceTo(a: IPoint, b: IPoint) {
     return Math.sqrt(
-      Math.pow(Math.abs(point.x - point.x), 2) +
-        Math.pow(Math.abs(point.y - point.y), 2),
+      Math.pow(Math.abs(a.x - b.x), 2) + Math.pow(Math.abs(a.y - b.y), 2),
     );
   },
 
   // return whichever point is 'greater' (both vals must be greater)
-  minPoint(pointA: IPoint, pointB: IPoint) {
-    return Point.lessOrEqualTo(pointA, pointB) ? pointA : pointB;
+  minPoint(a: IPoint, b: IPoint) {
+    return Point.lessOrEqualTo(a, b) ? a : b;
   },
 
   // return whichever point is 'less' (both vals must be less)
-  maxPoint(pointA: IPoint, pointB: IPoint) {
-    return Point.greaterOrEqualTo(pointA, pointB) ? pointA : pointB;
+  maxPoint(a: IPoint, b: IPoint) {
+    return Point.greaterOrEqualTo(a, b) ? a : b;
   },
 
   // return a new point with the min x and y of both points
@@ -141,5 +145,18 @@ export const Point = {
       x: Math.round(point.x),
       y: Math.round(point.y),
     };
+  },
+
+  getPointFromClient(el: HTMLElement, point: IClientPoint): IPoint {
+    const bounds = el.getBoundingClientRect();
+    const x = point.clientX - bounds.left;
+    const y = point.clientY - bounds.top;
+    return { x, y };
+  },
+
+  getPointFromTouchEvent(event: TouchEvent, el: HTMLElement) {
+    return event.touches.length > 0
+      ? Point.getPointFromClient(el, event.touches[0])
+      : undefined;
   },
 };
