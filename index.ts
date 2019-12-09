@@ -62,7 +62,6 @@ export * from "./src/saveToFile";
 export * from "./src/semitonesToDetune";
 export default "./src/stereo-panner-shim.js";
 export * from "./src/StorageIndexedDB";
-export * from "./src/timer.inline-worker.d";
 export * from "./src/timer.inline-worker.js";
 export * from "./src/updateAtom";
 export * from "./src/uuidv4";
