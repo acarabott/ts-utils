@@ -1,6 +1,5 @@
 export * from "./src/ampdb";
 export * from "./src/appendInDiv";
-export * from "./src/audio.d";
 export * from "./src/audio.js";
 export * from "./src/canvasFactory";
 export * from "./src/checkInputNumber";
