@@ -59,7 +59,6 @@ export * from "./src/readObjectFromFile";
 export * from "./src/Rect";
 export * from "./src/reverseDateTime";
 export * from "./src/saveToFile";
-export * from "./src/semitonesToDetune";
 export default "./src/stereo-panner-shim.js";
 export * from "./src/StorageIndexedDB";
 export * from "./src/timer.inline-worker.js";
