@@ -1,6 +1,6 @@
 {
   "name": "@acarabott/ts-utils",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "TypeScripts Utility Functions",
   "main": "index.ts",
   "scripts": {
@@ -24,12 +24,13 @@
   },
   "homepage": "https://github.com/acarabott/ts-utils#readme",
   "dependencies": {
-    "@thi.ng/api": "^6.5.0",
-    "@thi.ng/hdom-canvas": "^2.4.0",
-    "@thi.ng/math": "^1.5.0",
+    "@thi.ng/api": "^6.6.0",
+    "@thi.ng/atom": "^3.1.2",
+    "@thi.ng/hdom-canvas": "^2.4.1",
+    "@thi.ng/math": "^1.5.1",
     "@thi.ng/rstream": "^2.5.6",
-    "@thi.ng/transducers": "^6.0.0",
-    "@types/node": "^12.12.14",
+    "@thi.ng/transducers": "^6.1.0",
+    "@types/node": "^12.12.17",
     "@types/webmidi": "^2.0.3"
   },
   "devDependencies": {
