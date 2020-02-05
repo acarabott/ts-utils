@@ -30,8 +30,8 @@
     "@thi.ng/math": "^1.5.1",
     "@thi.ng/rstream": "^3.0.0",
     "@thi.ng/transducers": "^6.1.0",
-    "@types/node": "^13.1.7",
-    "@types/webmidi": "^2.0.3"
+    "@types/node": "^13.7.0",
+    "@types/webmidi": "^2.0.4"
   },
   "devDependencies": {
     "typescript": "^3.7.5"
