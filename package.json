@@ -24,12 +24,12 @@
   },
   "homepage": "https://github.com/acarabott/ts-utils#readme",
   "dependencies": {
-    "@thi.ng/api": "^6.6.0",
-    "@thi.ng/atom": "^3.1.2",
-    "@thi.ng/hdom-canvas": "^2.4.1",
-    "@thi.ng/math": "^1.5.1",
-    "@thi.ng/rstream": "^3.0.0",
-    "@thi.ng/transducers": "^6.1.0",
+    "@thi.ng/api": "^6.7.1",
+    "@thi.ng/atom": "^3.1.4",
+    "@thi.ng/hdom-canvas": "^2.4.3",
+    "@thi.ng/math": "^1.6.0",
+    "@thi.ng/rstream": "^3.0.2",
+    "@thi.ng/transducers": "^6.2.1",
     "@types/node": "^13.7.0",
     "@types/webmidi": "^2.0.4"
   },
