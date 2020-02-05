@@ -118,20 +118,36 @@ export class MIDI {
     }
   }
 
-  public noteOn(note: number, velocityNorm: number, channel: number) {
-    this.send([
-      this.setChannel(NOTE_ON, channel),
-      this.setNoteNumber(note),
-      this.setVelocity(velocityNorm),
-    ]);
+  public noteOn(
+    note: number,
+    velocityNorm: number,
+    channel: number,
+    timestamp?: number,
+  ) {
+    this.send(
+      [
+        this.setChannel(NOTE_ON, channel),
+        this.setNoteNumber(note),
+        this.setVelocity(velocityNorm),
+      ],
+      timestamp,
+    );
   }
 
-  public noteOff(note: number, velocityNorm: number, channel: number) {
-    this.send([
-      this.setChannel(NOTE_OFF, channel),
-      this.setNoteNumber(note),
-      this.setVelocity(velocityNorm),
-    ]);
+  public noteOff(
+    note: number,
+    velocityNorm: number,
+    channel: number,
+    timestamp?: number,
+  ) {
+    this.send(
+      [
+        this.setChannel(NOTE_OFF, channel),
+        this.setNoteNumber(note),
+        this.setVelocity(velocityNorm),
+      ],
+      timestamp,
+    );
   }
 
   protected findDevice(id: string, type: "inputs" | "outputs") {
@@ -146,12 +162,12 @@ Available IDs are: ${ports.map(port => port.id).join(", ")}`);
     return foundPort;
   }
 
-  protected send(data: [number, number, number]) {
+  protected send(data: [number, number, number], timestamp?: number) {
     if (this._outPort === undefined) {
       return;
     }
 
-    this._outPort.send(data);
+    this._outPort.send(data, timestamp);
   }
 
   protected setChannel(value: number, channel: number) {
