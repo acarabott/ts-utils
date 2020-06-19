@@ -25,8 +25,9 @@
     "noFallthroughCasesInSwitch": true,
     "downlevelIteration": true,
     "experimentalDecorators": true,
-    "preserveConstEnums": true
+    "preserveConstEnums": true,
+    "declaration": true
   },
   "include": ["./**/*.ts"],
-  "exclude": ["./**/node_modules", "./src/*.js", "./dist"]
+  "exclude": ["./**/node_modules", "./src/*.js", "./dist"],
 }
