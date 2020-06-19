@@ -23,8 +23,6 @@ export * from "./src/findIndexThrow";
 export * from "./src/findOr";
 export * from "./src/findThrow";
 export * from "./src/flatten";
-export * from "./src/gestureCanvas";
-export * from "./src/gestureStream";
 export * from "./src/getById";
 export * from "./src/getColorString";
 export * from "./src/getDateParts";
