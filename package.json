@@ -1,0 +1,40 @@
+{
+    "name": "@acarabott/ts-utils",
+    "version": "1.0.0",
+    "description": "TypeScripts Utility Functions",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "prepublish": "tsc -p . && cp ./src/*.js ./dist/src/"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/acarabott/ts-utils.git"
+    },
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/"
+    },
+    "keywords": [
+        "TypeScript",
+        "Utility"
+    ],
+    "author": "Arthur Carabott",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/acarabott/ts-utils/issues"
+    },
+    "homepage": "https://github.com/acarabott/ts-utils#readme",
+    "dependencies": {
+        "@types/webmidi": "^2.0.4"
+    },
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^4.16.1",
+        "@typescript-eslint/parser": "^4.16.1",
+        "eslint": "^7.21.0",
+        "eslint-config-prettier": "^7.2.0",
+        "eslint-plugin-prettier": "^3.3.1",
+        "parcel-bundler": "^1.12.4",
+        "prettier": "^2.2.1",
+        "typescript": "^4.2.3"
+    }
+}

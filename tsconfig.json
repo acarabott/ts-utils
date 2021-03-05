@@ -1,0 +1,33 @@
+{
+    "compilerOptions": {
+        "sourceMap": true,
+        "module": "es6",
+        "moduleResolution": "node",
+        "target": "es2017",
+        "lib": [
+            "dom",
+            "es6",
+            "es2015",
+            "es2015.collection",
+            "es2015.iterable",
+            "es2015.symbol",
+            "es2017",
+            "es2017.object"
+        ],
+        "outDir": "dist",
+        "allowJs": true,
+        "strict": true,
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "downlevelIteration": true,
+        "experimentalDecorators": true,
+        "preserveConstEnums": true,
+        "declaration": true
+    },
+    "include": ["./**/*.ts", "./src/**/*.js"],
+    "exclude": ["./**/node_modules", "./src/stereo-panner-shim.js", "./dist"]
+}
